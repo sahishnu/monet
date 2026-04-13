@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Header } from "../components/landing/Header.tsx";
+import { LandingPage } from "../components/landing/LandingPage.tsx";
+---
+
+<Layout>
+  <Header client:load />
+  <LandingPage />
+</Layout>

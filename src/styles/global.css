@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --color-page: #fafaf8;
+  --color-ink: #1a1a1a;
+  --color-muted: #7a7a78;
+  --color-label: #b0b0ae;
+  --color-accent: #ec784f;
+  --color-border: rgb(0 0 0 / 0.06);
+  --color-border-strong: rgb(0 0 0 / 0.12);
+
+  /* Paper grid: 1440px artboard, 144px side padding, 1152px content = 12 × 96px */
+  --page-max: 90rem; /* 1440px */
+  --page-gutter: clamp(1rem, 4.2vw, 9rem); /* up to 144px */
+  --content-width: 72rem; /* 1152px = 3×384px */
+  --baseline: 1.5rem; /* 24px */
+}
+
+/*
+ * Overlay grid: fewer columns on narrow viewports → larger cells, fewer lines.
+ * Matches vertical guides in GridOverlay.tsx (4 / 8 / 12 cols).
+ */
+:root {
+  --grid-cols: 4;
+  --grid-unit: calc(80svw / var(--grid-cols));
+}
+
+@media (min-width: 768px) {
+  :root {
+    --grid-cols: 8;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --grid-cols: 12;
+  }
+}
+
+.grid-overlay-horizontal {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--grid-unit) - 1px),
+    rgba(0, 0, 0, 0.035) calc(var(--grid-unit) - 1px),
+    rgba(0, 0, 0, 0.035) var(--grid-unit)
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-[var(--color-page)] font-sans text-[var(--color-ink)] antialiased;
+}
+
+/* Focus visibility for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
