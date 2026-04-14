@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { GridOverlay } from "../components/landing/GridOverlay.tsx";
+import { GridRulers } from "../components/landing/GridRulers.tsx";
 
 interface Props {
   title?: string;
@@ -36,7 +37,7 @@ const ogImage = new URL("/og.png", Astro.site ?? Astro.url).href;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Rubik:wght@400;500&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -46,6 +47,7 @@ const ogImage = new URL("/og.png", Astro.site ?? Astro.url).href;
       <div class="relative z-10 min-h-screen">
         <slot />
       </div>
+      <GridRulers />
     </div>
   </body>
 </html>

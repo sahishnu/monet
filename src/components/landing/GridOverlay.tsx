@@ -3,13 +3,7 @@
  * Column count (and thus cell size + row density) steps down on small screens:
  * 4 cols (< md), 8 cols (md–lg), 12 cols (lg+).
  */
-const GUTTER_PCT = 10;
-
-function columnPositions(cols: number): number[] {
-  const contentPct = 100 - GUTTER_PCT * 2;
-  const step = contentPct / cols;
-  return Array.from({ length: cols + 1 }, (_, i) => GUTTER_PCT + i * step);
-}
+import { columnPositions } from "../../lib/grid";
 
 function VerticalGuides({ cols }: { cols: number }) {
   const positions = columnPositions(cols);

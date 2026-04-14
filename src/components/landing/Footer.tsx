@@ -5,7 +5,10 @@ import { SectionGridEdgeLines } from "./SectionGridEdgeLines";
 
 export function Footer() {
   return (
-    <footer className="relative flex w-full min-w-0 flex-col items-center justify-center gap-8 self-stretch bg-[#1A1A1A] py-10">
+    <footer
+      id="site-footer"
+      className="relative flex w-full min-w-0 flex-col items-center justify-center gap-8 self-stretch bg-[#1A1A1A] py-10"
+    >
       <SectionGridEdgeLines />
       <div className="relative z-10 flex w-full flex-col items-center gap-8">
         <div className="mx-auto flex w-full max-w-[var(--page-max)] flex-col justify-between gap-8 px-[var(--page-gutter)] lg:flex-row lg:items-start">
