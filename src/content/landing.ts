@@ -21,10 +21,10 @@ export const nav = {
 
 export const hero = {
   eyebrow: "Web Design & Development",
-  lines: ["Digital experiences that", "feel like a"],
-  accent: "masterpiece",
+  lines: ["You run the business.", "We make sure your"],
+  accent: "website keeps up.",
   sub:
-    "One subscription to beautiful, high-performing web design. Pause or cancel anytime.",
+    "Your website should bring in business, not create more work.",
   primaryCta: { label: "Start a Project", href: "#contact" },
   secondaryCta: { label: "See Pricing", href: "#pricing" },
 };

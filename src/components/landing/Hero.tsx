@@ -1,60 +1,71 @@
 import { hero } from "../../content/landing";
+import { LogoMark } from "./LogoMark";
+import { BrandWordmark } from "./BrandWordmark";
 
 export function Hero() {
   return (
     <section
-      className="flex min-h-[168px] w-full min-w-0 flex-col items-stretch gap-0"
+      className="flex w-full min-w-0 flex-col items-stretch"
       aria-labelledby="hero-heading"
     >
-      {/* Cancel PageShell horizontal padding on small screens → edge-to-edge; restore md+ */}
-      <div className="mb-16 -mx-[var(--page-gutter)] w-[calc(100%+2*var(--page-gutter))] max-w-none md:mx-0 md:w-full">
-        <div className="aspect-[3/1] w-full overflow-hidden bg-[#E4E8E3]">
-          <img
-            src="/images/hero/painting-9.jpeg"
-            alt="Impressionist painting of a garden with a small classical rotunda among green foliage."
-            width={1920}
-            height={640}
-            className="h-full w-full object-cover [object-position:50%_50%]"
-            decoding="async"
-            fetchPriority="high"
-          />
-        </div>
-      </div>
-      <div className="flex w-full flex-col items-center gap-7 pb-24">
-        <p className="text-[13px] font-medium uppercase tracking-[0.08em] text-[#B0B0AE]">
-          {hero.eyebrow}
-        </p>
-        <div className="flex w-full flex-col items-center">
-          <h1
-            id="hero-heading"
-            className="text-center text-[clamp(2rem,6vw,4.25rem)] font-bold leading-[1.1] tracking-[-0.04em] text-[#1A1A1A] lg:text-[68px] lg:leading-[1.12]"
-          >
-            {hero.lines.map((line) => (
-              <span key={line} className="block">
-                {line}
+      <div className="flex w-full flex-col lg:flex-row lg:items-stretch lg:gap-0">
+        {/* Left column — logo + copy */}
+        <div className="flex flex-col justify-between gap-6 py-12 lg:gap-12 lg:w-1/2 lg:py-24 lg:pr-16">
+          <a href="#" className="inline-flex items-center overflow-visible self-start">
+            <LogoMark className="relative z-0" />
+            <BrandWordmark
+              variant="header"
+              className="relative z-10 -ml-4 min-w-0 pl-1"
+            />
+          </a>
+
+          <div className="flex flex-col gap-6">
+            <h1
+              id="hero-heading"
+              className="text-left text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.1] tracking-[-0.04em] text-[#1A1A1A] lg:text-[52px] lg:leading-[1.1]"
+            >
+              {hero.lines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+              <span className="mt-1 block font-['Instrument_Serif',ui-serif,Georgia,serif] text-[clamp(2.25rem,5.5vw,3.75rem)] font-normal italic tracking-[-0.03em] lg:text-[58px] lg:leading-[1.12]">
+                {hero.accent}
               </span>
-            ))}
-            <span className="mt-1 block font-['Instrument_Serif',ui-serif,Georgia,serif] text-[clamp(2.5rem,7vw,4.75rem)] font-normal italic tracking-[-0.03em] lg:text-[76px] lg:leading-[1.15]">
-              {hero.accent}
-            </span>
-          </h1>
+            </h1>
+            <p className="max-w-[28rem] text-[17px] leading-7 text-[#7A7A78]">
+              {hero.sub}
+            </p>
+            <div className="flex flex-col items-stretch gap-3 pt-2 sm:flex-row">
+              <a
+                href={hero.primaryCta.href}
+                className="flex min-h-12 items-center justify-center bg-[#1A1A1A] px-10 py-3.5 text-[15px] font-semibold text-[#FAFAF8] transition hover:opacity-90"
+              >
+                {hero.primaryCta.label}
+              </a>
+              <a
+                href={hero.secondaryCta.href}
+                className="flex min-h-12 items-center justify-center border border-[#0000001F] px-10 py-3.5 text-[15px] font-medium text-[#1A1A1A] transition hover:bg-black/5"
+              >
+                {hero.secondaryCta.label}
+              </a>
+            </div>
+          </div>
         </div>
-        <p className="max-w-[31.25rem] text-center text-[17px] leading-7 text-[#7A7A78]">
-          {hero.sub}
-        </p>
-        <div className="flex w-full max-w-md flex-col items-stretch gap-3 pt-2 sm:max-w-none sm:flex-row sm:justify-center">
-          <a
-            href={hero.primaryCta.href}
-            className="flex min-h-12 items-center justify-center bg-[#1A1A1A] px-12 py-3.5 text-[15px] font-semibold text-[#FAFAF8] transition hover:opacity-90"
-          >
-            {hero.primaryCta.label}
-          </a>
-          <a
-            href={hero.secondaryCta.href}
-            className="flex min-h-12 items-center justify-center border border-solid border-[#0000001F] px-12 py-3.5 text-[15px] font-medium text-[#1A1A1A] transition hover:bg-black/5"
-          >
-            {hero.secondaryCta.label}
-          </a>
+
+        {/* Right column — image, breaks out of PageShell gutter on the right */}
+        <div className="-mx-[var(--page-gutter)] md:mx-0 lg:w-1/2 lg:-mr-[var(--page-gutter)]">
+          <div className="aspect-[4/3] w-full overflow-hidden bg-[#E4E8E3] lg:aspect-auto lg:h-full">
+            <img
+              src="/images/hero/painting-9.jpeg"
+              alt="Impressionist painting of a garden with a small classical rotunda among green foliage."
+              width={960}
+              height={720}
+              className="h-full w-full object-cover"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </div>
         </div>
       </div>
     </section>
