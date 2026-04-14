@@ -122,7 +122,7 @@ export const pricing = {
     {
       id: "standard",
       name: "Standard",
-      price: "$175",
+      price: "$200",
       suffix: "/month",
       variant: "featured" as const,
       badge: "Most popular",
@@ -140,7 +140,7 @@ export const pricing = {
     {
       id: "one-time",
       name: "One-Time Build",
-      price: "$1,750",
+      price: "$3,000",
       suffix: null,
       variant: "light" as const,
       features: [
@@ -154,6 +154,18 @@ export const pricing = {
       cta: { label: "Start your project", href: "#contact" },
     },
   ],
+  custom: {
+    name: "Custom",
+    price: "Let's talk",
+    headline: "Need more than a website?",
+    features: [
+      "Custom software design & development",
+      "E-commerce & advanced integrations",
+      "Internal dashboards & workflow tools",
+      "Automation for repetitive business processes",
+    ],
+    cta: { label: "Contact us", href: "#contact" },
+  },
 };
 
 export const services = {
