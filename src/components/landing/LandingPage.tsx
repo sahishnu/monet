@@ -9,7 +9,7 @@ import { Footer } from "./Footer";
 export function LandingPage() {
   return (
     <div className="[font-synthesis:none] flex min-h-screen flex-col items-center overflow-x-hidden bg-transparent text-xs leading-4 antialiased">
-      <main className="flex w-full flex-col items-center">
+      <main className="flex w-full flex-col items-stretch">
         <PageShell as="div">
           <Hero />
         </PageShell>
