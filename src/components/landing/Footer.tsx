@@ -17,7 +17,7 @@ export function Footer() {
               <LogoMark className="relative z-0" size="sm" />
               <BrandWordmark
                 variant="footer"
-                className="relative z-10 -ml-3 min-w-0 pl-0.5"
+                className="relative z-10 -ml-3 min-w-0 pl-1"
               />
             </div>
             <p className="text-[13px] leading-relaxed text-[#FFFFFF73]">{brand.tagline}</p>

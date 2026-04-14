@@ -18,7 +18,7 @@ export function Header() {
             <LogoMark className="relative z-0" />
             <BrandWordmark
               variant="header"
-              className="relative z-10 -ml-4 min-w-0 pl-0.5"
+              className="relative z-10 -ml-4 min-w-0 pl-1"
             />
           </a>
 
