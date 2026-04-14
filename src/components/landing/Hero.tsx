@@ -10,11 +10,11 @@ export function Hero() {
       <div className="mb-16 -mx-[var(--page-gutter)] w-[calc(100%+2*var(--page-gutter))] max-w-none md:mx-0 md:w-full">
         <div className="aspect-[3/1] w-full overflow-hidden bg-[#E4E8E3]">
           <img
-            src="/images/hero/painting-1.jpeg"
+            src="/images/hero/painting-9.jpeg"
             alt="Impressionist painting of a garden with a small classical rotunda among green foliage."
             width={1920}
             height={640}
-            className="h-full w-full object-cover [object-position:58%_30%]"
+            className="h-full w-full object-cover [object-position:50%_50%]"
             decoding="async"
             fetchPriority="high"
           />

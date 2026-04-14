@@ -9,16 +9,16 @@ const styles: Record<
   header: {
     wrap: "inline-flex items-center gap-2 leading-inherit",
     serif:
-      "font-['Instrument_Serif',ui-serif,Georgia,serif] text-3xl font-normal italic tracking-[-0.02em] text-[#1A1A1A]",
+      "font-['Instrument_Serif',ui-serif,Georgia,serif] text-3xl italic tracking-[-0.02em] text-[#1A1A1A]",
     sans:
-      "font-['Rubik',ui-sans-serif,system-ui,sans-serif] text-xl font-regular tracking-[-0.02em] text-[#1A1A1A]",
+      "font-['Rubik',ui-sans-serif,system-ui,sans-serif] text-[1.33rem] tracking-[-0.02em] text-[#1A1A1A]",
   },
   footer: {
     wrap: "inline-flex items-center gap-1 leading-[max(1.5rem,calc(var(--grid-unit)/2))]",
     serif:
-      "font-['Instrument_Serif',ui-serif,Georgia,serif] text-2xl font-normal italic tracking-[-0.02em] text-[#FAFAF8]",
+      "font-['Instrument_Serif',ui-serif,Georgia,serif] text-2xl italic tracking-[-0.02em] text-[#FAFAF8]",
     sans:
-      "font-['Rubik',ui-sans-serif,system-ui,sans-serif] text-base font-regular text-[#FAFAF8]",
+      "font-['Rubik',ui-sans-serif,system-ui,sans-serif] text-base text-[#FAFAF8]",
   },
 };
 
