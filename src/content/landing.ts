@@ -29,6 +29,30 @@ export const hero = {
   secondaryCta: { label: "See Pricing", href: "#pricing" },
 };
 
+export const beforeAfter = {
+  title: "Why choose Monet?",
+  subtitle:
+    "A strong business can still have an unfinished picture online.",
+  before: {
+    heading: "Before working with Monet",
+    items: [
+      "Our business has grown, but our website still feels behind.",
+      "People don't quickly understand what we do orwhy to choose us.",
+      "We know the site needs work, but we don't have time to manage it.",
+      "The website feels more like a chore than a growth tool.",
+    ],
+  },
+  after: {
+    heading: "After working with Monet",
+    items: [
+      "A website that reflects the quality of the business behind it.",
+      "Clearer messaging that builds trust and drives more inquiries.",
+      "One team handling copy, design, and development from start to finish.",
+      "A polished site that works hard without creating more work.",
+    ],
+  },
+};
+
 export const howItWorks = {
   eyebrow: "How it works",
   title: ["The way design", "should be done"],
@@ -140,6 +164,40 @@ export const pricing = {
         "12 months support",
       ],
       cta: { label: "Contact us", href: "#contact" },
+    },
+  ],
+};
+
+export const services = {
+  eyebrow: "What we take care of",
+  title: ["Everything your business needs"],
+  titleAccent: "to shine online.",
+  sub: "Everything your business needs to look polished online and stay easy to manage.",
+  items: [
+    {
+      title: "Website design",
+      body: "Clean, credible design that helps people understand your business and trust you faster.",
+      icon: "design" as const,
+    },
+    {
+      title: "Website development",
+      body: "A fast, modern site built properly, not pieced together with shortcuts.",
+      icon: "dev" as const,
+    },
+    {
+      title: "Domain management",
+      body: "We handle domain setup, renewals, and the details that are easy to forget.",
+      icon: "domain" as const,
+    },
+    {
+      title: "Hosting management",
+      body: "Reliable hosting setup and maintenance, without you needing to think about it.",
+      icon: "hosting" as const,
+    },
+    {
+      title: "Google Business Profile",
+      body: "We keep your profile accurate, updated, and easier for local customers to find.",
+      icon: "google" as const,
     },
   ],
 };

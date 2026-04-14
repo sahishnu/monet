@@ -1,6 +1,6 @@
 import { PageShell } from "./PageShell";
 import { Hero } from "./Hero";
-import { HowItWorksSection } from "./HowItWorksSection";
+import { BeforeAfterSection } from "./BeforeAfterSection";
 import { FeaturesSection } from "./FeaturesSection";
 import { PricingSection } from "./PricingSection";
 import { CtaBanner } from "./CtaBanner";
@@ -14,7 +14,7 @@ export function LandingPage() {
           <Hero />
         </PageShell>
         <PageShell as="div">
-          <HowItWorksSection />
+          <BeforeAfterSection />
         </PageShell>
         <PageShell as="div">
           <FeaturesSection />

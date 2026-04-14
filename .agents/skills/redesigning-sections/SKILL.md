@@ -93,6 +93,21 @@ export function VariantPicker({ variants, activeIndex, onChange }: VariantPicker
 }
 ```
 
+## Astro Projects
+
+Astro renders React components as static HTML by default — `useState`, `onClick`, and all interactivity are stripped out unless the component is **hydrated** with a `client:` directive.
+
+When the variant picker needs to work in an Astro project:
+
+1. **Identify the `.astro` page** that renders the parent React component (e.g., `src/pages/index.astro`).
+2. **Add `client:load`** to the React component that holds the `useState` for the variant switcher. For example, change `<LandingPage />` to `<LandingPage client:load />`.
+3. If the parent component was previously rendered without a `client:` directive (purely static), adding `client:load` ships the entire component tree as client-side JS. This is fine during the redesign phase; it can be reverted when finalizing.
+4. During **finalization** (Step 5), after replacing the original with the chosen variant and removing the picker, also **remove the `client:load` directive** if the component no longer needs client-side interactivity, restoring static rendering.
+
+**Quick checklist before testing the picker:**
+- [ ] The React component using `useState` has a `client:load` (or `client:visible`) directive on its Astro usage site.
+- [ ] The `VariantPicker` is rendered **inside** that hydrated component, not in a separate non-hydrated island.
+
 ## Rules
 
 - Never delete or modify the original component until the user makes a final selection.

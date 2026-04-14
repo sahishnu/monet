@@ -7,7 +7,7 @@ const stepGrad =
 export function HowItWorksSection() {
   return (
     <section
-      id="services"
+      id="how-it-works"
       className="flex min-h-[168px] flex-col items-center gap-14 py-24"
       aria-labelledby="how-heading"
     >
