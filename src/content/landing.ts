@@ -1,5 +1,11 @@
+const brandSerif = "Monet";
+const brandSans = "Digital Studio";
+
 export const brand = {
-  name: "Monet Digital Studio",
+  name: `${brandSerif} ${brandSans}`,
+  /** First word — Instrument Serif italic in header/footer; rest stays sans. */
+  nameSerif: brandSerif,
+  nameSans: brandSans,
   tagline:
     "Crafting digital masterpieces with care, intention, and a deep love for beautiful design.",
 };

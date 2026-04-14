@@ -12,9 +12,10 @@
   --color-border: rgb(0 0 0 / 0.06);
   --color-border-strong: rgb(0 0 0 / 0.12);
 
-  /* Paper grid: 1440px artboard, 144px side padding, 1152px content = 12 × 96px */
+  /* Paper grid: 1440px artboard, 144px side padding, 1152px content = 12 × 96px.
+   * Side inset matches GridOverlay (10% band): 10vw, capped at 9rem (= 10% of 1440). */
   --page-max: 90rem; /* 1440px */
-  --page-gutter: clamp(1rem, 4.2vw, 9rem); /* up to 144px */
+  --page-gutter: clamp(1rem, 10vw, 9rem);
   --content-width: 72rem; /* 1152px = 3×384px */
   --baseline: 1.5rem; /* 24px */
 }

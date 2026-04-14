@@ -41,9 +41,11 @@ const ogImage = new URL("/og.png", Astro.site ?? Astro.url).href;
     />
   </head>
   <body class="min-h-screen">
-    <GridOverlay />
-    <div class="relative z-10 min-h-screen">
-      <slot />
+    <div class="relative">
+      <GridOverlay />
+      <div class="relative z-10 min-h-screen">
+        <slot />
+      </div>
     </div>
   </body>
 </html>

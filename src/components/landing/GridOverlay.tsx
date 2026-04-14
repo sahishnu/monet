@@ -35,7 +35,7 @@ function VerticalGuides({ cols }: { cols: number }) {
 export function GridOverlay() {
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-0"
+      className="pointer-events-none absolute inset-0 z-0"
       aria-hidden
     >
       <div className="absolute inset-0 grid-overlay-horizontal" />
