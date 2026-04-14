@@ -1,11 +1,11 @@
 import { pricing } from "../../content/landing";
-import { SectionGrid } from "./SectionGrid";
 
 export function PricingSection() {
+  const [standard, oneTime] = pricing.tiers;
   return (
     <section
       id="pricing"
-      className="flex min-h-[192px] flex-col items-center gap-14 py-24 pt-20"
+      className="flex flex-col items-center gap-14 py-24 pt-20"
       aria-labelledby="pricing-heading"
     >
       <div className="flex flex-col items-center gap-2">
@@ -22,89 +22,61 @@ export function PricingSection() {
         </h2>
       </div>
 
-      <SectionGrid className="w-full max-w-[var(--content-width)]">
-        {pricing.tiers.map((tier) => {
-          if (tier.variant === "featured") {
-            return (
-              <div
-                key={tier.id}
-                className="relative flex flex-col gap-6 bg-[#1A1A1A] p-8 md:col-span-1 lg:col-span-4"
-              >
-                <div className="absolute -top-2.5 left-1/2 z-10 -translate-x-1/2 bg-[#EC784F] px-3.5 py-1.5 uppercase">
-                  <span className="whitespace-nowrap text-[10px] font-bold leading-none tracking-[0.06em] text-white">
-                    {tier.badge}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#EC784F]">
-                    {tier.name}
-                  </span>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-[40px] font-bold leading-[3rem] tracking-[-0.03em] text-white">
-                      {tier.price}
-                    </span>
-                    {tier.suffix && (
-                      <span className="text-sm text-white/35">{tier.suffix}</span>
-                    )}
-                  </div>
-                </div>
-                <div className="h-px w-full shrink-0 bg-white/10" />
-                <ul className="flex flex-col gap-2.5">
-                  {tier.features.map((f) => (
-                    <li
-                      key={f}
-                      className="text-[13px] leading-none text-[#FFFFFF8C]"
-                    >
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={tier.cta.href}
-                  className="flex min-h-12 items-center justify-center bg-[#EC784F] p-3 text-sm font-semibold text-white transition hover:opacity-90"
-                >
-                  {tier.cta.label}
-                </a>
-              </div>
-            );
-          }
-
-          return (
-            <div
-              key={tier.id}
-              className="flex flex-col gap-6 border border-[#0000000F] bg-white p-8 md:col-span-1 lg:col-span-4"
-            >
-              <div className="flex flex-col gap-1.5">
-                <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B0B0AE]">
-                  {tier.name}
-                </span>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-[40px] font-bold leading-[3rem] tracking-[-0.03em] text-[#1A1A1A]">
-                    {tier.price}
-                  </span>
-                  {tier.suffix && (
-                    <span className="text-sm text-[#B0B0AE]">{tier.suffix}</span>
-                  )}
-                </div>
-              </div>
-              <div className="h-px w-full shrink-0 bg-[#0000000F]" />
-              <ul className="flex flex-col gap-2.5">
-                {tier.features.map((f) => (
-                  <li key={f} className="text-[13px] leading-none text-[#7A7A78]">
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={tier.cta.href}
-                className="flex min-h-12 items-center justify-center border border-[#0000001A] p-3 text-sm font-semibold text-[#1A1A1A] transition hover:bg-black/5"
-              >
-                {tier.cta.label}
-              </a>
+      <div className="grid w-full max-w-[var(--content-width)] grid-cols-1 gap-0 md:grid-cols-2">
+        {/* Standard — featured dark card */}
+        <div className="relative flex flex-col gap-7 bg-[#1A1A1A] p-10 lg:p-12">
+          <div className="absolute -top-3 left-10 z-10 bg-[#EC784F] px-4 py-1.5 uppercase lg:left-12">
+            <span className="whitespace-nowrap text-[10px] font-bold leading-none tracking-[0.06em] text-white">
+              {standard.badge}
+            </span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#EC784F]">
+              {standard.name}
+            </span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-[52px] font-bold leading-[1.1] tracking-[-0.04em] text-white lg:text-[60px]">
+                {standard.price}
+              </span>
+              {standard.suffix && (
+                <span className="text-base text-white/30">{standard.suffix}</span>
+              )}
             </div>
-          );
-        })}
-      </SectionGrid>
+          </div>
+          <div className="h-px w-full bg-white/10" />
+          <ul className="flex flex-1 flex-col gap-3">
+            {standard.features.map((f) => (
+              <li key={f} className="flex items-start gap-2.5 text-[13px] leading-5 text-white/55">
+                <span className="mt-0.5 text-[#EC784F]">✦</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* One-Time Build — light card */}
+        <div className="flex flex-col gap-7 border border-[#0000000F] bg-white p-10 lg:p-12">
+          <div className="flex flex-col gap-1">
+            <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B0B0AE]">
+              {oneTime.name}
+            </span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-[52px] font-bold leading-[1.1] tracking-[-0.04em] text-[#1A1A1A] lg:text-[60px]">
+                {oneTime.price}
+              </span>
+            </div>
+          </div>
+          <div className="h-px w-full bg-[#0000000F]" />
+          <ul className="flex flex-1 flex-col gap-3">
+            {oneTime.features.map((f) => (
+              <li key={f} className="flex items-start gap-2.5 text-[13px] leading-5 text-[#7A7A78]">
+                <span className="mt-0.5 text-[#B0B0AE]">✦</span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   );
 }
