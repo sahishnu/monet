@@ -37,7 +37,7 @@ export const beforeAfter = {
     heading: "Before working with Monet",
     items: [
       "Our business has grown, but our website still feels behind.",
-      "People don't quickly understand what we do orwhy to choose us.",
+      "People don't quickly understand what we do or why to choose us.",
       "We know the site needs work, but we don't have time to manage it.",
       "The website feels more like a chore than a growth tool.",
     ],
