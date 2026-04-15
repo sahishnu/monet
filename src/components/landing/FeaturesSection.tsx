@@ -45,16 +45,20 @@ export function FeaturesSection() {
           <ul className="grid grid-cols-1 md:grid-cols-3">
             {features.items.map((item, i) => (
               <li key={item.title} className="features-card-separator min-w-0">
-                <article className="paper-texture paper-texture-dark group relative flex h-full flex-col overflow-hidden bg-[#1A1A1A] transition-[background-color] duration-300 hover:bg-[#1F1F1F]">
+                <article className="paper-texture paper-texture-dark panel-dark-depth group relative flex h-full flex-col overflow-hidden">
                   {/* Hover wash — single high-impact moment */}
                   <div
-                    className="pointer-events-none absolute -right-1/4 -top-1/2 h-[140%] w-[70%] rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                    className="pointer-events-none absolute -right-1/4 -top-1/2 z-[2] h-[140%] w-[70%] rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
                     style={{
                       background:
                         "radial-gradient(closest-side, oklab(69.8% 0.118 0.099 / 18%) 0%, transparent 70%)",
                     }}
                   />
-                  <div className="relative z-[2] px-8 py-10 sm:px-10 sm:py-12 lg:px-11 lg:py-14">
+                  <div
+                    className="pointer-events-none absolute inset-0 z-[2] bg-white/[0.045] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden
+                  />
+                  <div className="relative z-[3] px-8 py-10 sm:px-10 sm:py-12 lg:px-11 lg:py-14">
                     <div className="flex items-start gap-5">
                       <span
                         className="shrink-0 font-['Instrument_Serif',ui-serif,Georgia,serif] text-[2rem] leading-none italic tracking-[-0.03em] text-[#EC784F]"
@@ -64,16 +68,7 @@ export function FeaturesSection() {
                       </span>
                       <div className="min-w-0 flex-1 pt-1">
                         <h3 className="text-[17px] font-semibold leading-snug tracking-[-0.03em] text-[#FFFFFFEE] lg:text-lg">
-                          {i === 1 ? (
-                            <>
-                              Built for{" "}
-                              <span className="font-['Instrument_Serif',ui-serif,Georgia,serif] font-normal italic tracking-[-0.02em] text-white">
-                                your brand
-                              </span>
-                            </>
-                          ) : (
-                            item.title
-                          )}
+                          {item.title}
                         </h3>
                       </div>
                     </div>

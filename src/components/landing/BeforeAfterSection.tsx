@@ -25,7 +25,7 @@ export function BeforeAfterSection() {
       {/* Full-bleed split */}
       <div className="flex w-full max-w-[var(--content-width)] flex-col md:flex-row">
         {/* Before side */}
-        <div className="paper-texture paper-texture-dark relative flex flex-1 flex-col gap-0 overflow-hidden bg-[#1A1A1A] pt-16 lg:pt-20">
+        <div className="paper-texture paper-texture-dark panel-dark-depth relative flex flex-1 flex-col gap-0 overflow-hidden pt-16 lg:pt-20">
           <h3 className="pointer-events-none absolute -left-3 -top-4 select-none text-[clamp(4rem,8vw,6rem)] font-black uppercase leading-none tracking-[-0.06em] text-[#FFFFFF18] lg:-left-4 lg:-top-5">
             Before
           </h3>
@@ -48,7 +48,7 @@ export function BeforeAfterSection() {
         }} />
 
         {/* After side */}
-        <div className="paper-texture relative flex flex-1 flex-col gap-0 overflow-hidden bg-[#EC784F] pt-16 lg:pt-20">
+        <div className="paper-texture paper-texture-warm relative flex flex-1 flex-col gap-0 overflow-hidden bg-[#EC784F] pt-16 lg:pt-20">
           <h3 className="pointer-events-none absolute -left-3 -top-4 select-none text-[clamp(4rem,8vw,6rem)] font-black uppercase leading-none tracking-[-0.06em] text-white/[0.18] lg:-left-4 lg:-top-5">
             After
           </h3>

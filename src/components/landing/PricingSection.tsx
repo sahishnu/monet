@@ -25,7 +25,7 @@ export function PricingSection() {
       <div className="flex w-full max-w-[var(--content-width)] flex-col gap-0">
         <div className="grid grid-cols-1 gap-0 md:grid-cols-2">
           {/* Standard — featured dark card */}
-          <div className="paper-texture paper-texture-dark relative flex flex-col gap-7 bg-[#1A1A1A] p-10 lg:p-12">
+          <div className="paper-texture paper-texture-dark panel-dark-depth panel-dark-depth--elevated relative flex flex-col gap-7 p-10 lg:p-12">
             <div className="absolute -top-3 left-10 z-10 bg-[#EC784F] px-4 py-1.5 uppercase lg:left-12">
               <span className="whitespace-nowrap text-[10px] font-bold leading-none tracking-[0.06em] text-white">
                 {standard.badge}

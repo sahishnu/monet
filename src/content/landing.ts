@@ -25,7 +25,7 @@ export const hero = {
   accent: "website keeps up.",
   sub:
     "Your website should bring in business, not create more work.",
-  primaryCta: { label: "Start a Project", href: "#contact" },
+  primaryCta: { label: "Let's build it", href: "#contact" },
   secondaryCta: { label: "See Pricing", href: "#pricing" },
 };
 
@@ -82,8 +82,8 @@ export const features = {
   titleItalic: "in 7 days, not 7 weeks",
   items: [
     { title: "Fast turnaround" },
-    { title: "Built for your brand" },
-    { title: "Easy to manage" },
+    { title: "Tailored to your niche" },
+    { title: "Off your plate" },
   ],
 };
 
@@ -221,15 +221,12 @@ export const cta = {
   line1: "Ready to create your",
   line2Italic: "masterpiece?",
   sub: "Let's build it in 7 days.",
-  primary: { label: "Book a Call", href: "#contact" },
+  primary: { label: "Let's get started", href: "#contact" },
   secondary: { label: "hello@monetdigitalstudio.com", href: "mailto:hello@monetstudio.com" },
 };
 
 export const footer = {
   columns: [] as { title: string; links: { label: string; href: string }[] }[],
-  legal: [
-    { label: "Privacy", href: "#" },
-    { label: "Terms", href: "#" },
-  ],
+  legal: [{ label: "Privacy", href: "/privacy" }],
   copyright: `2026 ${brand.name}. All rights reserved.`,
 };

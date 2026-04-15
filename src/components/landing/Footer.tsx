@@ -7,10 +7,18 @@ export function Footer() {
   return (
     <footer
       id="site-footer"
-      className="paper-texture paper-texture-dark relative flex w-full min-w-0 flex-col items-center justify-end gap-8 self-stretch bg-[#1A1A1A] bg-cover bg-center pb-8 pt-32 lg:pb-12 lg:pt-48 xl:pb-16 xl:pt-56 2xl:pb-20 2xl:pt-64"
-      style={{ backgroundImage: "url('/images/painting-night-med.jpeg')" }}
+      className="paper-texture paper-texture-dark relative flex w-full min-w-0 flex-col items-center justify-end gap-8 self-stretch bg-[#1A1A1A] pb-8 pt-32 lg:pb-12 lg:pt-48 xl:pb-16 xl:pt-56 2xl:pb-20 2xl:pt-64"
     >
-      <div className="absolute inset-0 z-0 bg-[#1A1A1A]/60" aria-hidden="true" />
+      {/* Ultra-wide (2560px+): image only in the 10%–90% band (first/last column guides); full-bleed below. */}
+      <div
+        className="absolute top-0 right-0 bottom-0 left-0 z-0 bg-cover bg-center min-[2560px]:right-[10%] min-[2560px]:left-[10%]"
+        style={{ backgroundImage: "url('/images/painting-night-med.jpeg')" }}
+        aria-hidden
+      />
+      <div
+        className="absolute top-0 right-0 bottom-0 left-0 z-0 bg-[#1A1A1A]/60 min-[2560px]:right-[10%] min-[2560px]:left-[10%]"
+        aria-hidden="true"
+      />
       <SectionGridEdgeLines />
       <div className="relative z-10 flex w-full flex-col items-center gap-8">
         <div className="mx-auto flex w-full max-w-[var(--page-max)] flex-col items-start justify-between gap-4 px-[var(--page-gutter)] pt-4 sm:flex-row sm:items-start">
