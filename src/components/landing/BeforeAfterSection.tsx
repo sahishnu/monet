@@ -25,19 +25,19 @@ export function BeforeAfterSection() {
       {/* Full-bleed split */}
       <div className="flex w-full max-w-[var(--content-width)] flex-col md:flex-row">
         {/* Before side */}
-        <div className="relative flex flex-1 flex-col gap-0 overflow-hidden bg-[#1A1A1A] pt-16 lg:pt-20">
-          <h3 className="pointer-events-none absolute -left-3 -top-4 select-none text-[clamp(4rem,8vw,6rem)] font-black uppercase leading-none tracking-[-0.06em] text-[#FFFFFF08] lg:-left-4 lg:-top-5">
+        <div className="paper-texture paper-texture-dark relative flex flex-1 flex-col gap-0 overflow-hidden bg-[#1A1A1A] pt-16 lg:pt-20">
+          <h3 className="pointer-events-none absolute -left-3 -top-4 select-none text-[clamp(4rem,8vw,6rem)] font-black uppercase leading-none tracking-[-0.06em] text-[#FFFFFF18] lg:-left-4 lg:-top-5">
             Before
           </h3>
           {beforeAfter.before.items.map((item, i) => (
             <div
               key={item}
-              className="flex items-start gap-6 border-b border-[#FFFFFF08] px-10 py-6 transition-colors hover:bg-[#FFFFFF06] lg:px-14"
+              className="flex items-start gap-6 border-b border-[#FFFFFF12] px-10 py-6 transition-colors hover:bg-[#FFFFFF0A] lg:px-14"
             >
-              <span className="font-['Instrument_Serif',ui-serif,Georgia,serif] text-[32px] leading-none italic text-[#FFFFFF15]">
+              <span className="font-['Instrument_Serif',ui-serif,Georgia,serif] text-[32px] leading-none italic text-[#FFFFFF30]">
                 {i + 1}
               </span>
-              <p className="pt-1.5 text-[15px] leading-relaxed text-[#FFFFFF80]">{item}</p>
+              <p className="pt-1.5 text-[15px] leading-relaxed text-[#FFFFFFCC]">{item}</p>
             </div>
           ))}
         </div>
@@ -48,8 +48,8 @@ export function BeforeAfterSection() {
         }} />
 
         {/* After side */}
-        <div className="relative flex flex-1 flex-col gap-0 overflow-hidden bg-[#EC784F] pt-16 lg:pt-20">
-          <h3 className="pointer-events-none absolute -left-3 -top-4 select-none text-[clamp(4rem,8vw,6rem)] font-black uppercase leading-none tracking-[-0.06em] text-white/10 lg:-left-4 lg:-top-5">
+        <div className="paper-texture relative flex flex-1 flex-col gap-0 overflow-hidden bg-[#EC784F] pt-16 lg:pt-20">
+          <h3 className="pointer-events-none absolute -left-3 -top-4 select-none text-[clamp(4rem,8vw,6rem)] font-black uppercase leading-none tracking-[-0.06em] text-white/[0.18] lg:-left-4 lg:-top-5">
             After
           </h3>
           {beforeAfter.after.items.map((item, i) => (

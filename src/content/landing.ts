@@ -77,40 +77,13 @@ export const howItWorks = {
 };
 
 export const features = {
-  eyebrow: "Why Monet",
-  titleItalic: `"You'll never go back"`,
-  titleBold: "better",
+  eyebrow: "The Monet difference",
+  titleBold: "Launch your website",
+  titleItalic: "in 7 days, not 7 weeks",
   items: [
-    {
-      title: "Top-notch quality",
-      body: "Senior-level design craft at your fingertips, whenever you need it.",
-      icon: "star" as const,
-    },
-    {
-      title: "Fixed monthly rate",
-      body: "No surprises. Pay the same predictable price each month.",
-      icon: "check" as const,
-    },
-    {
-      title: "Lightning fast",
-      body: "Most designs delivered in just a few business days on average.",
-      icon: "clock" as const,
-    },
-    {
-      title: "Fully flexible",
-      body: "Scale up, down, pause, or cancel anytime. No contracts.",
-      icon: "flex" as const,
-    },
-    {
-      title: "Unique to you",
-      body: "Every design crafted especially for your brand. 100% yours.",
-      icon: "unique" as const,
-    },
-    {
-      title: "Unlimited revisions",
-      body: "We iterate until you love it. No limits on rounds of feedback.",
-      icon: "revise" as const,
-    },
+    { title: "Fast turnaround" },
+    { title: "Built for your brand" },
+    { title: "Easy to manage" },
   ],
 };
 
@@ -145,7 +118,7 @@ export const pricing = {
       variant: "light" as const,
       features: [
         "Custom website design & development",
-        "Up to 5 pages",
+        "Up to 15 pages",
         "$15/month for Hosting",
         "Basic SEO setup",
         "30-day post-launch support",
@@ -202,41 +175,58 @@ export const services = {
   ],
 };
 
+export const faq = {
+  eyebrow: "FAQ",
+  title: ["Common questions,", "honest answers."],
+  items: [
+    {
+      question: "Who is Monet a good fit for?",
+      answer:
+        "Monet is a great fit for small businesses and service providers who want a professional website without having to manage the technical side themselves. If you want a partner who can handle the website work so you can stay focused on running your business, Monet is built for that.",
+    },
+    {
+      question: "Who will I actually be working with?",
+      answer:
+        "You'll work directly with Sahishnu Patel, the owner of Monet. He is a passionate software engineer and designer with a decade of experience in design and development, so you get direct communication and hands-on attention from the person actually building your site.",
+    },
+    {
+      question: "How do I get started?",
+      answer:
+        "It starts with a short intro call so we can understand what you need. After that, we'll sign a contract and get started almost immediately.",
+    },
+    {
+      question: "How long does a typical website project take?",
+      answer:
+        "We move fast. Most marketing websites can be delivered in about 7 days, depending on the size of the site, how quickly content is provided, and whether any custom features are needed.",
+    },
+    {
+      question: "Can I update my website later?",
+      answer:
+        "Yes. If you're on the monthly plan, ongoing edits and updates are included as part of the service. If you choose the one-time build, future updates can still be made whenever needed and are billed separately.",
+    },
+    {
+      question: "Can I cancel my service?",
+      answer:
+        "Yes, you can cancel your monthly service at any time. Your current billing cycle will continue through the end of the paid period, and you will not be billed for the following month. Your domain will remain yours, while the website, associated code, and assets remain the property of Monet, subject to the terms of your agreement.",
+    },
+    {
+      question: "Why do I need an ongoing payment for my website?",
+      answer:
+        "Your website is a business asset and an investment, not just a one-time project. The ongoing payment covers the continued care, support, and updates needed to keep it working well as your business grows.",
+    },
+  ],
+};
+
 export const cta = {
   line1: "Ready to create your",
   line2Italic: "masterpiece?",
   sub: "Let's talk about your project. We'd love to hear what you're building.",
   primary: { label: "Book a Call", href: "#contact" },
-  secondary: { label: "hello@monetstudio.com", href: "mailto:hello@monetstudio.com" },
+  secondary: { label: "hello@monetdigitalstudio.com", href: "mailto:hello@monetstudio.com" },
 };
 
 export const footer = {
-  columns: [
-    {
-      title: "Company",
-      links: [
-        { label: "About", href: "#" },
-        { label: "Careers", href: "#" },
-        { label: "Blog", href: "#" },
-      ],
-    },
-    {
-      title: "Services",
-      links: [
-        { label: "Web Design", href: "#" },
-        { label: "Development", href: "#" },
-        { label: "Branding", href: "#" },
-      ],
-    },
-    {
-      title: "Connect",
-      links: [
-        { label: "Twitter", href: "#" },
-        { label: "Dribbble", href: "#" },
-        { label: "LinkedIn", href: "#" },
-      ],
-    },
-  ],
+  columns: [] as { title: string; links: { label: string; href: string }[] }[],
   legal: [
     { label: "Privacy", href: "#" },
     { label: "Terms", href: "#" },

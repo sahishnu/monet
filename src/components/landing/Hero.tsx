@@ -57,8 +57,8 @@ export function Hero() {
         <div className="-mx-[var(--page-gutter)] md:mx-0 lg:w-1/2 lg:-mr-[var(--page-gutter)]">
           <div className="aspect-[4/3] w-full overflow-hidden bg-[#E4E8E3] lg:aspect-auto lg:h-full">
             <img
-              src="/images/hero/painting-9.jpeg"
-              alt="Impressionist painting of a garden with a small classical rotunda among green foliage."
+              src="/images/painting-lion.jpeg"
+              alt="Classical garden scene with a statue reading a book, a rose-covered stone arch, lily pond, and butterflies in sunlight."
               width={960}
               height={720}
               className="h-full w-full object-cover"

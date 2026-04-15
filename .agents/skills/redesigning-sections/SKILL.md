@@ -14,29 +14,62 @@ Generate multiple design variants for a website element and let the user preview
 1. Read the component or section the user wants redesigned.
 2. Note existing conventions: Tailwind classes, shadcn/ui primitives, Framer Motion usage, typography, color palette, spacing patterns.
 3. Identify what specifically should change (layout, copy, style, animation, all of the above).
+4. Read any sibling or neighboring components to capture the project's design language (colors, fonts, spacing, animation patterns).
 
-### Step 2 — Create 3-5 Variants
+### Step 2 — Spawn Sub-Agents to Create Variants
 
-1. Design **3-5 meaningfully different** approaches. Each variant should represent a distinct design direction, not just minor tweaks. For example:
-   - Different layouts (grid vs. stack vs. split-screen)
-   - Different visual styles (minimal vs. bold vs. editorial)
-   - Different content hierarchies or emphasis
-   - Different animation/interaction patterns
-2. Implement each variant as a separate named component in the **same file** as the original, suffixed with `VariantA`, `VariantB`, etc. (e.g., `HeroSectionVariantA`, `HeroSectionVariantB`).
-3. Keep the original component intact — do not modify it.
-4. All variants must use the project's existing libraries (Tailwind v4, shadcn/ui, Framer Motion, Lucide icons). Do not introduce new dependencies.
+**Do NOT create the variant designs yourself.** Use the `Task` tool to spawn **3–5 sub-agents in parallel**, one per variant. Each sub-agent independently designs and implements its variant.
 
-### Step 3 — Add the Variant Picker
+Each sub-agent Task call must include:
 
-1. Create a `VariantPicker` component (if it doesn't already exist) at `client/src/components/VariantPicker.tsx`. This is a small floating UI that lets the user cycle through variants.
-2. The picker should:
-   - Float in the bottom-right corner with `fixed` positioning and a high `z-index`.
-   - Show the current variant label (e.g., "Variant A", "Variant B", "Original").
-   - Have **Previous / Next** buttons to cycle through variants.
-   - Include an **"Original"** option so the user can compare against the unchanged version.
-   - Be styled unobtrusively — semi-transparent background, small text, rounded corners.
-   - Use Tailwind classes only, no inline styles.
-3. In the **parent page or layout** that renders the target component, wrap the section in a switcher:
+1. **Full context** — paste or reference the original component source, the file path, the project's conventions (libraries, Tailwind version, color palette, existing patterns you noted in Step 1).
+2. **A distinct design direction** — give each sub-agent a clear, differentiated creative brief. For example:
+   - Variant A: "Minimal and spacious — lots of whitespace, muted tones, subtle fade-in animations"
+   - Variant B: "Bold and editorial — large typography, strong color blocks, dramatic motion"
+   - Variant C: "Card-based grid layout — compact, information-dense, hover interactions"
+   - Variant D: "Split-screen / asymmetric layout — image-heavy, magazine-style"
+   - Variant E: "Playful and animated — bouncy Framer Motion, gradients, rounded shapes"
+3. **Output requirements** — tell the sub-agent to:
+   - Implement the variant as a single named export suffixed with its letter (e.g., `HeroSectionVariantA`).
+   - Use only the project's existing libraries (Tailwind v4, shadcn/ui, Framer Motion, Lucide icons). No new dependencies.
+   - Make the component fully self-contained — no shared state or external wrappers.
+   - Return the **complete component code** as its final output so the main agent can paste it into the file.
+4. **The `frontend-design` skill** — tell each sub-agent to load the `frontend-design` skill for design guidance.
+
+**Example Task call structure (repeat for each variant):**
+
+```
+Task(
+  description: "Design Variant A for PricingSection",
+  prompt: """
+  Load the `frontend-design` skill.
+
+  You are redesigning the <PricingSection> component.
+  Here is the original source: [paste full component code]
+  File path: src/components/landing/PricingSection.tsx
+
+  Project conventions:
+  - Tailwind v4, shadcn/ui, Framer Motion, Lucide icons
+  - [paste relevant color/font/spacing notes]
+
+  Creative direction: Minimal and spacious — lots of whitespace, muted tones, subtle fade-in animations.
+
+  Requirements:
+  - Export a single component named `PricingSectionVariantA`.
+  - Use only existing project libraries. Do not add dependencies.
+  - Component must be fully self-contained.
+  - Return the complete component code (imports + component) as your final answer.
+  """
+)
+```
+
+### Step 3 — Assemble Variants and Add the Picker
+
+Once all sub-agents return:
+
+1. **Add each variant** to the same file as the original component. Append all variant components below the original. Keep the original component intact — do not modify it.
+2. **Create the `VariantPicker`** component (if it doesn't already exist) at the appropriate path for the project (e.g., `src/components/VariantPicker.tsx`). See the reference implementation below.
+3. In the **parent page or layout** that renders the target component, wire up the switcher:
    - Import all variants and the `VariantPicker`.
    - Use a `useState` to track the active variant index.
    - Render the active variant conditionally.
@@ -54,7 +87,7 @@ When the user picks a variant:
 1. Replace the original component's implementation with the chosen variant's code.
 2. Remove all other variant components from the file.
 3. Remove the `VariantPicker` import and usage from the parent.
-4. Delete `client/src/components/VariantPicker.tsx` if no other redesign is in progress.
+4. Delete the `VariantPicker.tsx` file if no other redesign is in progress.
 5. Clean up any unused imports.
 
 ## VariantPicker Reference Implementation
@@ -110,6 +143,7 @@ When the variant picker needs to work in an Astro project:
 
 ## Rules
 
+- **The main agent must NOT design variants itself.** All variant creation must happen in parallel sub-agent Tasks.
 - Never delete or modify the original component until the user makes a final selection.
 - Each variant must be self-contained — no shared state or wrappers between variants.
 - Keep all variant code in the same file as the original to minimize file churn.

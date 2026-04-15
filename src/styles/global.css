@@ -65,3 +65,81 @@ body {
   outline-offset: 2px;
 }
 
+/* Matte paper texture overlay — add to any card/panel with `paper-texture` class.
+   Uses an inline SVG feTurbulence noise for a fine, organic grain effect. */
+.paper-texture {
+  position: relative;
+  isolation: isolate;
+}
+
+.paper-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  opacity: 0.45;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 300px 300px;
+}
+
+/* FAQ card – shadow lift on open */
+.faq-card[open] {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* On dark cards, use soft-light for a subtler grain that doesn't wash out */
+.paper-texture-dark::after {
+  mix-blend-mode: soft-light;
+  opacity: 0.35;
+}
+
+/* Features grid — simple “grooved” dividers (dark + hairline highlight, no glow/orange band) */
+.features-card-separator {
+  position: relative;
+}
+
+.features-card-separator:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Mobile: full-width horizontal seam */
+@media (max-width: 767px) {
+  .features-card-separator:not(:last-child)::after {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    /* Top edge reads darker (recessed); bottom edge catches a little light */
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.22) 55%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+  }
+}
+
+/* Tablet+: full-height vertical seam between columns */
+@media (min-width: 768px) {
+  .features-card-separator:not(:last-child)::after {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    left: auto;
+    /* Left side = shadow in the groove, right = thin highlight */
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.18) 52%,
+      rgba(255, 255, 255, 0.07) 100%
+    );
+  }
+}
+

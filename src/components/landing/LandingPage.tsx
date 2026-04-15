@@ -3,6 +3,7 @@ import { Hero } from "./Hero";
 import { BeforeAfterSection } from "./BeforeAfterSection";
 import { FeaturesSection } from "./FeaturesSection";
 import { PricingSection } from "./PricingSection";
+import { FaqSection } from "./FaqSection";
 import { CtaBanner } from "./CtaBanner";
 import { Footer } from "./Footer";
 
@@ -22,6 +23,7 @@ export function LandingPage() {
         <PageShell as="div">
           <PricingSection />
         </PageShell>
+        <FaqSection />
         <CtaBanner />
         <Footer />
       </main>

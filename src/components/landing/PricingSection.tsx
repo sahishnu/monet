@@ -25,7 +25,7 @@ export function PricingSection() {
       <div className="flex w-full max-w-[var(--content-width)] flex-col gap-0">
         <div className="grid grid-cols-1 gap-0 md:grid-cols-2">
           {/* Standard — featured dark card */}
-          <div className="relative flex flex-col gap-7 bg-[#1A1A1A] p-10 lg:p-12">
+          <div className="paper-texture paper-texture-dark relative flex flex-col gap-7 bg-[#1A1A1A] p-10 lg:p-12">
             <div className="absolute -top-3 left-10 z-10 bg-[#EC784F] px-4 py-1.5 uppercase lg:left-12">
               <span className="whitespace-nowrap text-[10px] font-bold leading-none tracking-[0.06em] text-white">
                 {standard.badge}
@@ -56,7 +56,7 @@ export function PricingSection() {
           </div>
 
           {/* One-Time Build — light card */}
-          <div className="flex flex-col gap-7 border border-[#0000000F] bg-white p-10 lg:p-12">
+          <div className="paper-texture flex flex-col gap-7 border border-[#0000000F] bg-white p-10 lg:p-12">
             <div className="flex flex-col gap-1">
               <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B0B0AE]">
                 {oneTime.name}
@@ -80,7 +80,7 @@ export function PricingSection() {
         </div>
 
         {/* Custom — full-width CTA banner */}
-        <div className="flex flex-col gap-5 border border-t-0 border-[#0000000F] bg-[#FAFAF9] p-10 lg:p-12">
+        <div className="paper-texture flex flex-col gap-5 border border-t-0 border-[#0000000F] bg-[#FAFAF9] p-10 lg:p-12">
           <div className="flex flex-col gap-1">
             <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#EC784F]">
               {pricing.custom.name}
