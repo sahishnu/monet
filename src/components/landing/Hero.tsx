@@ -45,7 +45,7 @@ export function Hero() {
               </a>
               <a
                 href={hero.secondaryCta.href}
-                className="flex min-h-12 items-center justify-center border border-[#0000001F] px-10 py-3.5 text-[15px] font-medium text-[#1A1A1A] transition hover:bg-black/5"
+                className="flex min-h-12 items-center justify-center border border-[#0000001F] bg-[#FAFAF8] px-10 py-3.5 text-[15px] font-medium text-[#1A1A1A] transition hover:bg-[#F0EFEB]"
               >
                 {hero.secondaryCta.label}
               </a>

@@ -5,4 +5,141 @@ import { LandingPage } from "../components/landing/LandingPage.tsx";
 
 <Layout>
   <LandingPage />
+
+  <dialog
+    id="contact-modal"
+    class="m-auto max-h-[calc(100%-2rem)] w-full max-w-md border-none bg-transparent p-4 backdrop:bg-black/60 backdrop:backdrop-blur-sm"
+  >
+    <div class="paper-texture paper-texture-light relative w-full border border-[#0000000F] bg-[#FAFAF8] p-8 shadow-2xl lg:p-10">
+      <button
+        type="button"
+        data-close-modal
+        class="absolute right-4 top-4 flex h-8 w-8 items-center justify-center text-[#7A7A78] transition hover:text-[#1A1A1A]"
+        aria-label="Close"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+      </button>
+
+      <div id="contact-success" class="hidden flex-col items-center gap-4 py-8 text-center">
+        <span class="text-3xl">✦</span>
+        <h3 class="text-[22px] font-bold tracking-[-0.02em] text-[#1A1A1A]">Thank you!</h3>
+        <p class="text-[15px] leading-relaxed text-[#7A7A78]">We'll be in touch within 24 hours.</p>
+        <button
+          type="button"
+          data-close-modal
+          class="mt-2 bg-[#1A1A1A] px-8 py-3 text-[13px] font-semibold text-white transition hover:opacity-90"
+        >
+          Close
+        </button>
+      </div>
+
+      <div id="contact-form-wrap">
+        <div class="mb-6 flex flex-col gap-1">
+          <h3 class="text-[22px] font-bold tracking-[-0.02em] text-[#1A1A1A] lg:text-[26px]">Get <span class="font-['Instrument_Serif',ui-serif,Georgia,serif] italic">in touch</span></h3>
+          <p class="text-[15px] leading-relaxed text-[#7A7A78]">Tell us a little about your project and we'll reach out within 24 hours.</p>
+        </div>
+        <form
+          id="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          class="flex flex-col gap-4"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div class="flex flex-col gap-1.5">
+            <label for="contact-name" class="text-xs font-semibold uppercase tracking-[0.06em] text-[#7A7A78]">Full name</label>
+            <input id="contact-name" name="name" type="text" required autocomplete="name" class="h-11 border border-[#0000001A] bg-white px-3.5 text-[15px] text-[#1A1A1A] outline-none transition placeholder:text-[#B0B0AE] focus:border-[#1A1A1A]" placeholder="Jane Smith" />
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label for="contact-contact" class="text-xs font-semibold uppercase tracking-[0.06em] text-[#7A7A78]">Phone or email</label>
+            <input id="contact-contact" name="contact" type="text" required class="h-11 border border-[#0000001A] bg-white px-3.5 text-[15px] text-[#1A1A1A] outline-none transition placeholder:text-[#B0B0AE] focus:border-[#1A1A1A]" placeholder="jane@company.com or (555) 123-4567" />
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label for="contact-message" class="text-xs font-semibold uppercase tracking-[0.06em] text-[#7A7A78]">Message <span class="font-normal normal-case tracking-normal text-[#B0B0AE]">(optional)</span></label>
+            <textarea id="contact-message" name="message" rows="3" class="resize-none border border-[#0000001A] bg-white px-3.5 py-2.5 text-[15px] text-[#1A1A1A] outline-none transition placeholder:text-[#B0B0AE] focus:border-[#1A1A1A]" placeholder="Tell us about your project…"></textarea>
+          </div>
+
+          <button type="submit" class="mt-2 flex min-h-12 items-center justify-center bg-[#1A1A1A] px-10 py-3.5 text-[15px] font-semibold text-white transition hover:opacity-90">Send message</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const modal = document.getElementById("contact-modal") as HTMLDialogElement;
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const formWrap = document.getElementById("contact-form-wrap")!;
+    const success = document.getElementById("contact-success")!;
+
+    function openModal() {
+      formWrap.classList.remove("hidden");
+      formWrap.classList.add("flex", "flex-col");
+      success.classList.add("hidden");
+      success.classList.remove("flex");
+      modal.showModal();
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.close();
+      document.body.style.overflow = "";
+      form.reset();
+    }
+
+    // Intercept all #contact links
+    document.addEventListener("click", (e) => {
+      const anchor = (e.target as HTMLElement).closest('a[href="#contact"]');
+      if (anchor) {
+        e.preventDefault();
+        openModal();
+      }
+    });
+
+    // Close buttons
+    modal.querySelectorAll("[data-close-modal]").forEach((btn) =>
+      btn.addEventListener("click", closeModal)
+    );
+
+    // Backdrop click
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Form submit
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const body = new URLSearchParams(new FormData(form) as any).toString();
+      try {
+        await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body,
+        });
+      } catch {}
+      formWrap.classList.add("hidden");
+      formWrap.classList.remove("flex", "flex-col");
+      success.classList.remove("hidden");
+      success.classList.add("flex");
+    });
+
+    // Copy email to clipboard
+    document.querySelectorAll<HTMLButtonElement>("[data-copy-email]").forEach((btn) => {
+      const copyIcon = btn.querySelector('[data-icon="copy"]')!;
+      const checkIcon = btn.querySelector('[data-icon="check"]')!;
+      btn.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(btn.dataset.copyEmail!);
+        copyIcon.classList.add("hidden");
+        checkIcon.classList.remove("hidden");
+        setTimeout(() => {
+          checkIcon.classList.add("hidden");
+          copyIcon.classList.remove("hidden");
+        }, 2000);
+      });
+    });
+  </script>
 </Layout>

@@ -46,6 +46,13 @@ const ogImage = new URL("/og.png", Astro.site ?? Astro.url).href;
     />
   </head>
   <body class="min-h-screen">
+    <!-- Hidden Netlify form for build-time detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="contact" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div class="relative">
       <GridOverlay />
       <div class="relative z-10 min-h-screen">
