@@ -7,8 +7,8 @@ export function Footer() {
   return (
     <footer
       id="site-footer"
-      className="paper-texture paper-texture-dark relative flex w-full min-w-0 flex-col items-center justify-end gap-8 self-stretch bg-[#1A1A1A] bg-cover bg-center pb-8 pt-32 lg:pb-12 lg:pt-48"
-      style={{ backgroundImage: "url('/images/painting-night.jpeg')" }}
+      className="paper-texture paper-texture-dark relative flex w-full min-w-0 flex-col items-center justify-end gap-8 self-stretch bg-[#1A1A1A] bg-cover bg-center pb-8 pt-32 lg:pb-12 lg:pt-48 xl:pb-16 xl:pt-56 2xl:pb-20 2xl:pt-64"
+      style={{ backgroundImage: "url('/images/painting-night-med.jpeg')" }}
     >
       <div className="absolute inset-0 z-0 bg-[#1A1A1A]/60" aria-hidden="true" />
       <SectionGridEdgeLines />

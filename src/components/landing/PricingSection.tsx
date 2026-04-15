@@ -101,7 +101,7 @@ export function PricingSection() {
         <div className="paper-texture paper-texture-light relative flex flex-col gap-5 overflow-hidden border border-t-0 border-[#0000000F] p-10 lg:p-12">
           <div
             className="absolute inset-0 z-0 bg-[#EDEAE4] bg-cover bg-[center_60%]"
-            style={{ backgroundImage: "url(/images/painting-gazebo.jpeg)" }}
+            style={{ backgroundImage: "url(/images/painting-gazebo-med.jpeg)" }}
             aria-hidden
           />
           <div
