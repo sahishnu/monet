@@ -220,7 +220,7 @@ export const faq = {
 export const cta = {
   line1: "Ready to create your",
   line2Italic: "masterpiece?",
-  sub: "Let's talk about your project. We'd love to hear what you're building.",
+  sub: "Let's build it in 7 days.",
   primary: { label: "Book a Call", href: "#contact" },
   secondary: { label: "hello@monetdigitalstudio.com", href: "mailto:hello@monetstudio.com" },
 };

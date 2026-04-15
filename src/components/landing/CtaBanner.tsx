@@ -5,7 +5,7 @@ export function CtaBanner() {
   return (
     <section
       id="contact"
-      className="relative flex w-full min-w-0 justify-center self-stretch bg-[#1A1A1A] py-8 lg:py-10"
+      className="paper-texture paper-texture-dark relative flex w-full min-w-0 justify-center self-stretch bg-[#1A1A1A] py-8 lg:py-10"
       aria-labelledby="cta-heading"
     >
       <SectionGridEdgeLines />

@@ -7,10 +7,10 @@ export function Footer() {
   return (
     <footer
       id="site-footer"
-      className="relative flex w-full min-w-0 flex-col items-center justify-end gap-8 self-stretch bg-[#1A1A1A] bg-cover bg-center pb-8 pt-32 lg:pb-12 lg:pt-48"
+      className="paper-texture paper-texture-dark relative flex w-full min-w-0 flex-col items-center justify-end gap-8 self-stretch bg-[#1A1A1A] bg-cover bg-center pb-8 pt-32 lg:pb-12 lg:pt-48"
       style={{ backgroundImage: "url('/images/painting-night.jpeg')" }}
     >
-      <div className="absolute inset-0 bg-[#1A1A1A]/60" aria-hidden="true" />
+      <div className="absolute inset-0 z-0 bg-[#1A1A1A]/60" aria-hidden="true" />
       <SectionGridEdgeLines />
       <div className="relative z-10 flex w-full flex-col items-center gap-8">
         <div className="mx-auto flex w-full max-w-[var(--page-max)] flex-col items-start justify-between gap-4 px-[var(--page-gutter)] pt-4 sm:flex-row sm:items-start">

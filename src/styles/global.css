@@ -96,6 +96,12 @@ body {
   opacity: 0.35;
 }
 
+/* Light / off-white cards: `overlay` barely moves white — multiply reads as paper grain */
+.paper-texture-light::after {
+  mix-blend-mode: multiply;
+  opacity: 0.28;
+}
+
 /* Features grid — simple “grooved” dividers (dark + hairline highlight, no glow/orange band) */
 .features-card-separator {
   position: relative;
@@ -143,3 +149,34 @@ body {
   }
 }
 
+/* Horizontal groove between rows (before/after lists — same 2px seam as feature card dividers) */
+.groove-separator-row {
+  position: relative;
+}
+
+.groove-separator-row:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.22) 55%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+}
+
+/* Warm panel: lighter groove on #EC784F — soft shadow + bright edge (less heavy than dark column) */
+.groove-separator-row--warm:not(:last-child)::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(255, 255, 255, 0.06) 48%,
+    rgba(255, 255, 255, 0.42) 100%
+  );
+}

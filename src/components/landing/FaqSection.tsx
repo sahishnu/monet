@@ -25,7 +25,7 @@ export function FaqSection() {
         {faq.items.map((item, i) => (
           <details
             key={i}
-            className="faq-card group paper-texture overflow-hidden border border-[#0000000F] border-t-0 first:border-t bg-white"
+            className="faq-card group paper-texture paper-texture-light overflow-hidden border border-[#0000000F] border-t-0 first:border-t bg-white"
           >
             <summary className="flex cursor-pointer list-none items-center gap-5 p-6 text-left select-none lg:p-8 [&::-webkit-details-marker]:hidden">
               <span className="flex size-10 shrink-0 items-center justify-center text-[15px] font-bold bg-[#F5F5F4] text-[#B0B0AE] transition-colors duration-200 group-open:bg-[#EC784F] group-open:text-white">

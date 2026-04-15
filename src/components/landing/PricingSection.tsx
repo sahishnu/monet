@@ -47,63 +47,100 @@ export function PricingSection() {
             <div className="h-px w-full bg-white/10" />
             <ul className="flex flex-1 flex-col gap-3">
               {standard.features.map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-[13px] leading-5 text-white/55">
-                  <span className="mt-0.5 text-[#EC784F]">✦</span>
-                  {f}
+                <li
+                  key={f}
+                  className="flex items-start gap-2.5 text-[13px] leading-5 text-white/55"
+                >
+                  <span
+                    aria-hidden
+                    className="flex h-[1.25rem] w-4 shrink-0 items-center justify-center text-[11px] leading-none text-[#EC784F]"
+                  >
+                    ✦
+                  </span>
+                  <span className="min-w-0">{f}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* One-Time Build — light card */}
-          <div className="paper-texture flex flex-col gap-7 border border-[#0000000F] bg-white p-10 lg:p-12">
-            <div className="flex flex-col gap-1">
-              <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B0B0AE]">
-                {oneTime.name}
-              </span>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-[52px] font-bold leading-[1.1] tracking-[-0.04em] text-[#1A1A1A] lg:text-[60px]">
-                  {oneTime.price}
+          <div className="paper-texture paper-texture-light border border-[#0000000F] bg-white p-10 lg:p-12">
+            <div className="relative z-10 flex flex-col gap-7">
+              <div className="flex flex-col gap-1">
+                <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B0B0AE]">
+                  {oneTime.name}
                 </span>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-[52px] font-bold leading-[1.1] tracking-[-0.04em] text-[#1A1A1A] lg:text-[60px]">
+                    {oneTime.price}
+                  </span>
+                </div>
               </div>
+              <div className="h-px w-full bg-[#0000000F]" />
+              <ul className="flex flex-1 flex-col gap-3">
+                {oneTime.features.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-start gap-2.5 text-[13px] leading-5 text-[#7A7A78]"
+                  >
+                    <span
+                      aria-hidden
+                      className="flex h-[1.25rem] w-4 shrink-0 items-center justify-center text-[11px] leading-none text-[#B0B0AE]"
+                    >
+                      ✦
+                    </span>
+                    <span className="min-w-0">{f}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="h-px w-full bg-[#0000000F]" />
-            <ul className="flex flex-1 flex-col gap-3">
-              {oneTime.features.map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-[13px] leading-5 text-[#7A7A78]">
-                  <span className="mt-0.5 text-[#B0B0AE]">✦</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
 
         {/* Custom — full-width CTA banner */}
-        <div className="paper-texture flex flex-col gap-5 border border-t-0 border-[#0000000F] bg-[#FAFAF9] p-10 lg:p-12">
-          <div className="flex flex-col gap-1">
-            <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#EC784F]">
-              {pricing.custom.name}
-            </span>
-            <p className="text-[22px] font-bold leading-tight tracking-[-0.02em] text-[#1A1A1A] lg:text-[28px]">
-              {pricing.custom.headline}
-            </p>
-          </div>
-          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-            <ul className="grid grid-cols-1 gap-x-8 gap-y-3.5 md:grid-cols-2 md:gap-y-2">
-              {pricing.custom.features.map((f) => (
-                <li key={f} className="flex items-center gap-2 text-[13px] text-[#7A7A78]">
-                  <span className="text-[#EC784F]">✦</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={pricing.custom.cta.href}
-              className="shrink-0 bg-[#1A1A1A] px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#333]"
-            >
-              {pricing.custom.cta.label}
-            </a>
+        <div className="paper-texture paper-texture-light relative flex flex-col gap-5 overflow-hidden border border-t-0 border-[#0000000F] p-10 lg:p-12">
+          <div
+            className="absolute inset-0 z-0 bg-[#EDEAE4] bg-cover bg-[center_60%]"
+            style={{ backgroundImage: "url(/images/painting-gazebo.jpeg)" }}
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-br from-[#FAFAF9]/94 via-[#FAFAF8]/88 to-[#F5F3EF]/82"
+            aria-hidden
+          />
+          <div className="relative z-10 flex flex-col gap-5">
+            <div className="flex flex-col gap-1">
+              <span className="text-xs font-semibold uppercase tracking-[0.06em] text-[#EC784F]">
+                {pricing.custom.name}
+              </span>
+              <p className="text-[22px] font-bold leading-tight tracking-[-0.02em] text-[#1A1A1A] lg:text-[28px]">
+                {pricing.custom.headline}
+              </p>
+            </div>
+            <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+              <ul className="grid grid-cols-1 gap-x-8 gap-y-3.5 md:grid-cols-2 md:gap-y-2">
+                {pricing.custom.features.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-start gap-2.5 text-[13px] leading-5 text-[#7A7A78]"
+                  >
+                    <span
+                      aria-hidden
+                      className="flex h-[1.25rem] w-4 shrink-0 items-center justify-center text-[11px] leading-none text-[#EC784F]"
+                    >
+                      ✦
+                    </span>
+                    <span className="min-w-0">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={pricing.custom.cta.href}
+                className="shrink-0 bg-[#1A1A1A] px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.06em] text-white transition-colors hover:bg-[#333]"
+              >
+                {pricing.custom.cta.label}
+              </a>
+            </div>
           </div>
         </div>
       </div>

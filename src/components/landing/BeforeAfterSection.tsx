@@ -32,7 +32,7 @@ export function BeforeAfterSection() {
           {beforeAfter.before.items.map((item, i) => (
             <div
               key={item}
-              className="flex items-start gap-6 border-b border-[#FFFFFF12] px-10 py-6 transition-colors hover:bg-[#FFFFFF0A] lg:px-14"
+              className="groove-separator-row flex items-start gap-6 px-10 py-6 transition-colors hover:bg-[#FFFFFF0A] lg:px-14"
             >
               <span className="font-['Instrument_Serif',ui-serif,Georgia,serif] text-[32px] leading-none italic text-[#FFFFFF30]">
                 {i + 1}
@@ -55,7 +55,7 @@ export function BeforeAfterSection() {
           {beforeAfter.after.items.map((item, i) => (
             <div
               key={item}
-              className="flex items-start gap-6 border-b border-white/10 px-10 py-6 transition-colors hover:bg-white/5 lg:px-14"
+              className="groove-separator-row groove-separator-row--warm flex items-start gap-6 px-10 py-6 transition-colors hover:bg-white/5 lg:px-14"
             >
               <span className="font-['Instrument_Serif',ui-serif,Georgia,serif] text-[32px] leading-none italic text-white/25">
                 {i + 1}
