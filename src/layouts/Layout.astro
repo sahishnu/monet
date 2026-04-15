@@ -9,13 +9,13 @@ interface Props {
 }
 
 const {
-  title = "Monet Digital Studio | Creative Partner for Growing Businesses",
+  title = "Monet Digital Studio. Creative Partner for Growing Businesses",
   description =
     "We design and build landing pages and websites that feel polished, memorable, and built to convert.",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
-const ogImage = new URL("/monet-og-compressed.png", Astro.site ?? Astro.url).href;
+const ogImage = new URL("/monet-og.png", Astro.site ?? Astro.url).href;
 ---
 
 <!doctype html>
